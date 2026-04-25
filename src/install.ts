@@ -85,7 +85,7 @@ export async function install(): Promise<void> {
   }
 
   // Step 1: configure credentials
-  await configure();
+  await configure({ skipReauth: true });
 
   // Step 2: authenticate
   console.log('');

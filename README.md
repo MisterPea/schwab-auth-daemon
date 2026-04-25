@@ -194,3 +194,9 @@ All optional. Credentials are stored in the keychain after `schwab-auth install`
 |---|---|---|
 | `SCHWAB_KEYCHAIN_SERVICE` | `schwab-node` | Keychain namespace — must match `new KeychainTokenStore()` in all consumer apps |
 | `SCHWAB_REFRESH_INTERVAL_MS` | `1200000` | Daemon refresh interval in ms. Keep under 30 min (access token lifetime). |
+
+---
+
+## Disclaimer
+
+This tool manages OAuth authentication only. It is not financial advice and carries no liability for financial losses, missed trades, or API interruptions. See [DISCLAIMER.md](DISCLAIMER.md) for full details.

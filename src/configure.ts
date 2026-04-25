@@ -8,7 +8,7 @@ async function prompt(rl: readline.Interface, question: string, current?: string
   return answer || current || '';
 }
 
-export async function configure(): Promise<SchwabCredentials> {
+export async function configure(options?: { skipReauth?: boolean }): Promise<SchwabCredentials> {
   const existing = await loadCredentials();
 
   console.log('\nConfigure Schwab API credentials');
@@ -29,9 +29,11 @@ export async function configure(): Promise<SchwabCredentials> {
     await saveCredentials(creds);
     console.log('\nCredentials saved to keychain.');
 
-    const reauth = (await rl.question('Re-authenticate now? [Y/n]: ')).trim().toLowerCase();
-    if (reauth !== 'n') {
-      await login();
+    if (!options?.skipReauth) {
+      const reauth = (await rl.question('Re-authenticate now? [Y/n]: ')).trim().toLowerCase();
+      if (reauth !== 'n') {
+        await login();
+      }
     }
 
     return creds;
