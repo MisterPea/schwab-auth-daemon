@@ -1,0 +1,51 @@
+{
+  "name": "@misterpea/schwab-auth-daemon",
+  "version": "0.1.0",
+  "description": "CLI and background daemon for centralized Schwab OAuth token management",
+  "license": "MIT",
+  "author": "Perry Angelora",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "homepage": "https://github.com/MisterPea/schwab-auth-daemon#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MisterPea/schwab-auth-daemon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MisterPea/schwab-auth-daemon/issues"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "schwab-auth": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/cli.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@misterpea/schwab-node": "^0.6.0",
+    "keytar": "^7.9.0"
+  },
+  "devDependencies": {
+    "@types/keytar": "^4.4.0",
+    "@types/node": "^22.0.0",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.8.0",
+    "vitest": "^4.1.5"
+  }
+}
